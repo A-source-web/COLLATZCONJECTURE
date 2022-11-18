@@ -1,1 +1,22 @@
 # COLLATZCONJECTURE
+
+Azim Mohamed P
+201ME211
+CS252 Assignment
+Question 3.21.
+Program explanation:
+ Unistd has all posix functions
+sys/types has definitions for signed int and signed long, we need cuz pid_t data type is an signed integer
+In the written program  the child process will output the sequence of numbers obtained from the algorithm as specified under the conditions of the Collatz conjecture.
+Only the child process implements the collatz conjecture process.
+int k is used to store the initial number from which the sequence starts
+pid_t is used to store the process Id and related information but mainly process Id.
+
+First we take the input from user. Here we use a do while loop to make sure the input>0
+
+Execute the fork() system call. This creates a child process and returns the pid = 0 to child on succesfull creation. The Child process has its own copy of Program data.
+The pid of parent process != 0. Hence it enters the else block. The function wait() is called. Wait() suspends all parent activities untill one of its child return/signals that its execution is over.
+
+After wait() is called. We move to child process, where pid = 0. It enters if block and executes the algorithm. After finishing it displays the value of k stored in child process and returns/signals zero indicating the process is over.
+Once the child process is done, the parent continues. It displays the value of k it has stored. Then terminates execution.
+
