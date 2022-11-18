@@ -1,22 +1,13 @@
 # COLLATZCONJECTURE
 
-Azim Mohamed P
-201ME211
-CS252 Assignment
-Question 3.21.
-Program explanation:
- Unistd has all posix functions
-sys/types has definitions for signed int and signed long, we need cuz pid_t data type is an signed integer
-In the written program  the child process will output the sequence of numbers obtained from the algorithm as specified under the conditions of the Collatz conjecture.
-Only the child process implements the collatz conjecture process.
-int k is used to store the initial number from which the sequence starts
-pid_t is used to store the process Id and related information but mainly process Id.
+Name - Azim Mohamed P
+Roll Number - 201ME211
 
-First we take the input from user. Here we use a do while loop to make sure the input>0
+CS252 (Minors) - Operating Systems Semester Project (Individual)
+Question No. - 3.21 - Collatz Conjecture
 
-Execute the fork() system call. This creates a child process and returns the pid = 0 to child on succesfull creation. The Child process has its own copy of Program data.
-The pid of parent process != 0. Hence it enters the else block. The function wait() is called. Wait() suspends all parent activities untill one of its child return/signals that its execution is over.
+The Collatz conjecture concerns what happens when we take any positive integer n and apply the following algorithm: n = { n∕2, if n is even 3 × n + 1, if n is odd The conjecture states that when this algorithm is continually applied, all positive integers will eventually reach 1. For example, if n = 35, the sequence is 35, 106, 53, 160, 80, 40, 20, 10, 5, 16, 8, 4, 2, 1
 
-After wait() is called. We move to child process, where pid = 0. It enters if block and executes the algorithm. After finishing it displays the value of k stored in child process and returns/signals zero indicating the process is over.
-Once the child process is done, the parent continues. It displays the value of k it has stored. Then terminates execution.
+Write a C program using the fork() system call that generates this sequence in the child process. The starting number will be provided from the command line. For example, if 8 is passed as a parameter on the command line, the child process will output 8, 4, 2, 1. Because the parent and child processes have their own copies of the data, it will be necessary for the child to output the sequence. Have the parent invoke the wait() call to wait for the child process to complete before exiting the program. Perform necessary error checking to ensure that a positive integer is passed on the command line.
 
+Credits: SeanStaz https://github.com/SeanStaz/theCollatzConjecture.c
